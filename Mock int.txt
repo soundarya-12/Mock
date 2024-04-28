@@ -4,6 +4,10 @@ git fetch
 git fetch` downloads/retrieves updates from a remote repository to 
 your local repository without integrating them
 
+it downloads only the new data from the remote repository and does not integrate any of the downloaded data 
+into your working files.
+providing a view of the data is all it does.
+
 git pull
 ========
 `git pull` not only fetches the updates but also 
@@ -11,9 +15,15 @@ incorporates them into your active branch.
 updates the current branch with the latest changes from the remote branch
 fetch + merge
 
+it downloads as well as merges the data from the remote respository into the local
+respository.
+
 what is git cherry-pick?
 `git cherry-pick` is used to apply the changes 
 introduced by some commits from one branch onto another branch.
+
+In git means to choose a commit from one branch and apply it onto
+another.
 
 what is the difference git merge and git rebase?
 `git merge` 
@@ -31,6 +41,7 @@ from one branch onto another, creating a linear history.
 rebase the current head onto the specified branch
 rewrites the commit history by placing from one branch onto another branch, creating a linear history
 
+Rebasing is the process of moving a branch to a new branch.
 
 what is the difference between git clone and git pull?
 
