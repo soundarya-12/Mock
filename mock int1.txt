@@ -1,0 +1,85 @@
+1. what is VPC?
+Amazon VPC is a logically isolated section of the AWS Cloud where you can launch resources in a virtual network that you define. 
+It allows you to control your network environment, including IP addresses, subnets, and security settings.
+
+2. what are the components of VPC?
+VPC include subnets, 
+	    route tables, 
+	    network access control lists (ACLs), 
+	    security groups, and 
+	    Virtual Private Gateways (VPGs).
+
+3. what is the difference between public subnet and private subnet?
+Public subnet				private subnet
+The subnet has a direct route to an     The subnet does not have a direct route to an internet gateway.
+internet gateway.
+Resources in a public subnet can         Resources in a private subnet require a NAT device to access the public internet.
+access the public internet.
+
+4. What is the use of internet gateway?
+Internet Gateway enables instances in your VPC to access the internet 
+and allows internet traffic to reach instances in your VPC.
+
+5. what is the use of NAT gateway?
+You can use a private NAT gateway to enable communication between 
+networks even if they have overlapping CIDR ranges. 
+
+6. What is elastic ip?
+An Elastic IP (EIP) is a static IPv4 address designed for dynamic cloud computing. With an EIP, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account. 
+EIPs are associated with your AWS account, not a specific instance, 
+and you control that address until you choose to explicitly release it.
+
+7. what is vpc peering?
+VPC peering allows you to connect two VPCs together, 
+enabling resources in different VPCs to communicate 
+as if they were on the same network.
+
+8. what are transit gateways?
+Use a transit gateway, which acts as a central hub, to route traffic 
+between your VPCs, VPN connections, and AWS Direct Connect connections.
+
+9. How you will set up VPC for 3-tier architecture? Explain step by step.
+
+Pre-requisites:
+AWS account
+
+Basic knowledge of AWS services like EC2, RDS, and VPC
+
+Step 1: Set Up Your VPC (Virtual Private Cloud)
+Create a new VPC through the AWS Management Console.
+Configure your VPC with a private and public subnet.
+Create an Internet Gateway and associate it with the public subnet to allow internet access.
+
+Step 2: Set Up the Database Layer
+Launch an Amazon RDS instance for your database in the private subnet.
+Configure the database security group to allow connections only from the application layer.
+
+Step 3: Set Up the Application Layer
+Launch EC2 instances in your public subnet for the application layer.
+Install and configure your application software.
+Ensure that the security group allows traffic from the Web layer and to the Database layer.
+
+Step 4: Set Up the Web Layer
+Launch EC2 instances in your public subnet for the web layer.
+Install and configure your web server software.
+Ensure the security group allows traffic from the internet and to the Application layer.
+
+Step 5: Configure Security Groups and Network ACLs
+Set up security groups to control inbound and outbound traffic at the instance level.
+Configure Network Access Control Lists (ACLs) to control inbound and outbound traffic at the subnet level.
+
+Step 6: Testing Your Setup
+Access your web server through its public IP address or domain name.
+Check the connectivity between the layers by trying to access the application and database layers from the web layer.
+
+Step 7: Monitoring and Management
+Utilize AWS CloudWatch to monitor the health and performance of your instances and database.
+Set up alarms and notifications for any critical events.
+
+Step 8: Backup and Recovery
+Configure automated backups for your database using Amazon RDS snapshots.
+Set up Amazon S3 to store backups of your application and web server data.
+
+10. what is VPC CIDR?
+Classless Inter-Domain Routing (CIDR) is an IP address allocation method 
+that improves data routing efficiency on the internet.
